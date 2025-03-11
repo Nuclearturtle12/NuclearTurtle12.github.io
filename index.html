@@ -1,7 +1,38 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Landing Page</title>
+        <link href="/assets/css/style.css" rel="stylesheet">
+        <link href="/assets/css/landing.css" rel="stylesheet">
+        <script src="/assets/js/landing.js"></script>
+    </head>
+    <body>
+        <div id="topContent">
+            <div id="landing">
+                <div class="left">
+                    <h2>Got an old device?</h2>
+                    <h1 style="color:#d46ab4">Donate it to be recycled!</h1>
+                    <p>Donate your old technology to our repair shops to be used<br> as spare parts, or be recycled by our partners!</p>
+
+
+                    <form method="POST" action="/api/LandingInterest.php">
+                        <div class="flex" style="margin-top: 1rem;">
+                            <input name="email" type="email" placeholder="Enter your Email-Address for updates!" style="width: 100%;" />
+                            <div class="small-space"></div>
+                            <button style="width: 8rem;">Submit</button>    
+                        </div>
+                    </form>
+                </div>
+                <div class="space"></div>
+                <div class="right">
+                    <img src="/assets/img/phone.png" />
+                </div>
+            </div>
+        </div>
+        
+        <img src="/assets/svg/side-thing.svg" id="side-thing" />
+        <img src="/assets/svg/bubbles.svg" id="bubbles" />
+    </body>
 </html>
