@@ -4,9 +4,191 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Landing Page</title>
-        <link href="/assets/css/style.css" rel="stylesheet">
-        <link href="/assets/css/landing.css" rel="stylesheet">
-        <script src="/assets/js/landing.js"></script>
+        <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Setup & Defaults */
+body, html {
+    margin: 0;
+    padding: 0;
+    color: Black;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    --theme-color: #FFA2E3;
+    --theme-color-dark: #b84f98;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a {
+    color: Black;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: var(--theme-color-dark);
+}
+
+input {
+    padding: 0.5rem;
+    border: 1px solid #B0B0B0;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+input.max {
+    width: 100%;
+    box-sizing: border-box;
+}
+form input:nth-child(even) {
+    margin: 0.5rem 0;
+}
+
+button {
+    background-color: var(--theme-color);
+    border: none;
+    border-radius: 0.5rem;
+    color: White;
+    padding: 0.5rem;
+}   
+button.max {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pageTitle {
+    margin: 2rem 0;
+}
+
+.content {
+    margin: 0 24rem;
+}
+
+.card {
+    border: 1px solid #B0B0B0;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+.card.error {
+    border: 1px solid #FF2222;
+    background-color: #FFAFAF;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.card.success {
+    border: 1px solid #22FF22;
+    background-color: #AFFFAF;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+nav {
+    background-color: var(--theme-color-dark);
+    padding: 1.5rem 0;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+nav .content {
+    display: flex;
+}
+nav .items-left {
+    flex: 1 1 auto;
+}
+nav .items-left * {
+    margin-right: 1rem;
+}
+nav .items-right {
+    flex: 0 1 auto;
+}
+nav .items-right * {
+    margin-left: 1rem;
+}
+nav a {
+    color: White;
+}
+nav a:hover {
+    color: var(--theme-color);
+}
+#topContent {
+    height: 100vh;
+    position: relative;
+}
+
+#landing {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+.space {
+    width: 12rem;
+}
+.small-space {
+    width: 1rem;
+}
+.small-space-v {
+    height: 1rem;
+}
+
+form input:nth-child(even) {
+}
+
+.flex {
+    display: flex;
+}
+.flex-fill {
+    flex: 1 1 auto;
+}
+.flex-init {
+    flex: 1 0 auto;
+}
+
+button {
+    background-color: #D46AB4;
+}
+
+#side-thing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30rem;
+    z-index: -5;
+}
+#bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: -6;
+}
+        </style>
+        <script>
+var landing;
+var topContent;
+window.addEventListener('DOMContentLoaded', () => {
+    landing = document.getElementById("landing");
+    landing.style.height = Math.max(window.innerHeight, 200) + "px";
+
+    topContent = document.getElementById("topContent");
+    topContent.style.height = Math.max(window.innerHeight, 400) + "px"; // Prevents https://upload.livaco.dev/u/lIUaVWqk4F.png
+});
+
+window.addEventListener('resize', () => {
+    landing.style.height = Math.max(window.innerHeight, 200) + "px";
+    topContent.style.height = Math.max(window.innerHeight, 475) + "px"; // Prevents https://upload.livaco.dev/u/lIUaVWqk4F.png
+});
+
+window.addEventListener('load', () => {
+    var btn = document.getElementById("interested");
+    btn.addEventListener('click', () => {
+        window.open("https://forms.office.com/pages/responsepage.aspx?id=nKagUU8OPUu2QhLgExmGNS0MJZtnOh9OvNYBha9VzHZUREwxV1FGWTlTSFBESVhWRDA0SUFGSjJYWi4u&route=shorturl", '_blank').focus();
+    });
+});
+        </script>
     </head>
     <body>
         <div id="topContent">
@@ -16,14 +198,7 @@
                     <h1 style="color:#d46ab4">Donate it to be recycled!</h1>
                     <p>Donate your old technology to our repair shops to be used<br> as spare parts, or be recycled by our partners!</p>
 
-
-                    <form method="POST" action="/api/LandingInterest.php">
-                        <div class="flex" style="margin-top: 1rem;">
-                            <input name="email" type="email" placeholder="Enter your Email-Address for updates!" style="width: 100%;" />
-                            <div class="small-space"></div>
-                            <button style="width: 8rem;">Submit</button>    
-                        </div>
-                    </form>
+                    <button id="interested" style="width: 100%; padding: 0.5rem; margin-top: 1rem;">Register your Interest</button>    
                 </div>
                 <div class="space"></div>
                 <div class="right">
